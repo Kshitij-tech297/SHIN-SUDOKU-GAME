@@ -1,0 +1,137 @@
+* {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #f4f1eb;
+      font-family: Georgia, serif;
+      gap: 24px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: normal;
+      letter-spacing: 0.2em;
+      color: #2c2c2a;
+      text-transform: uppercase;
+    }
+
+    /* OUTER BOARD — 3x3 grid of boxes */
+    .board {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      width: 360px;
+      height: 360px;
+      border: 3px solid #2c2c2a;
+      margin: 0 auto;
+    }
+
+    /* EACH BOX — 3x3 grid of cells */
+    .box {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      border: 1.5px solid #2c2c2a;
+    }
+
+    /* INDIVIDUAL CELL */
+    .cell {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 0.5px solid #b4b2a9;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background 0.1s;
+      color: #2c2c2a;
+      user-select: none;
+    }
+
+    .cell:hover {
+      background: #e8e4db;
+    }
+
+    /* A clue given at the start — not editable */
+    .cell.given {
+      font-weight: bold;
+      color: #2c2c2a;
+      cursor: default;
+    }
+
+    /* A number the user filled in */
+    .cell.filled {
+      color: #185FA5;
+    }
+
+    /* The currently selected cell */
+    .cell.selected {
+      background: #d6e8f7;
+      outline: 2px solid #378ADD;
+      outline-offset: -2px;
+    }
+
+    /* Highlight cells in the same row/col/box */
+    .cell.highlight {
+      background: #eef4fa;
+    }
+
+    /* Wrong number entered */
+    .cell.error {
+      color: #c0392b;
+    }
+
+    .controls {
+      display: flex;
+      gap: 12px;
+    }
+
+    button {
+      padding: 10px 24px;
+      font-size: 14px;
+      font-family: Georgia, serif;
+      letter-spacing: 0.1em;
+      border: 1.5px solid #2c2c2a;
+      background: transparent;
+      cursor: pointer;
+      transition: background 0.15s;
+      color: #2c2c2a;
+    }
+
+    button:hover {
+      background: #2c2c2a;
+      color: #f4f1eb;
+    }
+
+    #message {
+      font-size: 14px;
+      letter-spacing: 0.05em;
+      color: #3B6D11;
+      min-height: 20px;
+    }
+
+    .difficulty {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      font-size: 13px;
+      color: #5f5e5a;
+      letter-spacing: 0.05em;
+    }
+
+    .difficulty select {
+      font-family: Georgia, serif;
+      font-size: 13px;
+      padding: 4px 8px;
+      border: 1px solid #b4b2a9;
+      background: transparent;
+      color: #2c2c2a;
+      cursor: pointer;
+    }
